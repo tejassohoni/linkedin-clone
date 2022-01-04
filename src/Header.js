@@ -1,16 +1,15 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import "./Header.css";
-
-import HeaderOption from "./HeaderOption";
-
 import SearchIcon from "@material-ui/icons/Search";
 import HomeIcon from "@material-ui/icons/Home";
 import BusinessCenterIcon from "@material-ui/icons/BusinessCenter";
 import ChatIcon from "@material-ui/icons/Chat";
 import SupervisorAccountSharpIcon from "@material-ui/icons/SupervisorAccountSharp";
 import NotificationsIcon from "@material-ui/icons/Notifications";
+
+import "./Header.css";
+import HeaderOption from "./HeaderOption";
 import { logout } from "./features/userSlice";
 import { auth } from "./firebase";
 

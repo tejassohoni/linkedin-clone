@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-
-import "./Feed.css";
-import Post from "./Post";
-import { db } from "./firebase";
-import firebase from "firebase/compat/app";
+import FlipMove from "react-flip-move";
 
 import CreateIcon from "@material-ui/icons/Create";
 import InputOption from "./InputOption";
@@ -13,6 +9,10 @@ import SubscriptionsIcon from "@material-ui/icons/Subscriptions";
 import EventNoteIcon from "@material-ui/icons/EventNote";
 import CalendarViewDayIcon from "@material-ui/icons/CalendarViewDay";
 
+import "./Feed.css";
+import Post from "./Post";
+import firebase from "firebase/compat/app";
+import { db } from "./firebase";
 import { selectUser } from "./features/userSlice";
 
 function Feed() {
@@ -71,15 +71,17 @@ function Feed() {
         </div>
       </div>
       {/*Posts*/}
-      {posts.map(({ id, data: { name, description, message, photoUrl } }) => (
-        <Post
-          key={id}
-          name={name}
-          description={description}
-          message={message}
-          photoUrl={photoUrl}
-        />
-      ))}
+      <FlipMove>
+        {posts.map(({ id, data: { name, description, message, photoUrl } }) => (
+          <Post
+            key={id}
+            name={name}
+            description={description}
+            message={message}
+            photoUrl={photoUrl}
+          />
+        ))}
+      </FlipMove>
     </div>
   );
 }
